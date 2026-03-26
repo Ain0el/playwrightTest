@@ -6,15 +6,14 @@ test('user can register', async ({ page }) => {
 
   // Expect a title "to contain" a substring.
   await expect(page.getByRole('heading', { name: 'Create Account' })).toBeVisible();
-  await page.getByRole('textbox', { name: 'Fullname Fullname' }).fill("Ray Sin");
-  await page.getByRole('textbox', { name: 'Username Username' }).fill("raysin");
-  await page.getByRole('textbox', { name: 'Email Email' }).fill("raysinnn@gmail.com");
-  await page.getByRole('textbox', { name: 'Password Password' }).fill("Rayyss12");
-  await page.getByRole('textbox', { name: 'Password Confirmation' }).fill("Rayyss12");
+  await page.getByRole('textbox', { name: 'Fullname Fullname' }).fill("Audie Yose");
+  await page.getByRole('textbox', { name: 'Username Username' }).fill("aidiey");
+  await page.getByRole('textbox', { name: 'Email Email' }).fill("audieyose@gmail.com");
+  await page.getByRole('textbox', { name: 'Password Password' }).fill("Yoseaudi3");
+  await page.getByRole('textbox', { name: 'Password Confirmation' }).fill("Yoseaudi3");
   await page.getByRole('button', { name: 'Register' }).click();
   await expect(page.getByRole('heading', { name: 'Create Account Success' })).toBeVisible();
   await page.getByText('Check your email for account');
-  await page.getByRole('button', { name: 'Back To Home' }).click();
   
   // await usersPage.textBoxPassword.fill('123');
   // Confirm that the password visibility toggle shows the password correctly when clicked.
