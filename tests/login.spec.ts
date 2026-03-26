@@ -4,12 +4,11 @@ import { LoginPage } from '../locator/auth.ts';
 let login: LoginPage;
 
 test.beforeEach(async ({ page }) => {
-    login = new LoginPage(page);
-
+  login = new LoginPage(page);
+  await page.goto('/auth/login');
 });
 
 test('login shows error when username or email is empty', async ({ page }) => {
-  await page.goto('/auth/login');
   await expect(login.loginTitle).toBeVisible();
   await login.textBoxUsernameEmail.fill('');
   await login.textBoxPassword.fill('Amberly33');
@@ -18,7 +17,6 @@ test('login shows error when username or email is empty', async ({ page }) => {
 });
 
 test('login shows error when password is empty', async ({ page }) => {
-  await page.goto('/auth/login');
   await expect(login.loginTitle).toBeVisible();
   await login.textBoxUsernameEmail.fill('amberly');
   await login.textBoxPassword.fill('');
@@ -27,7 +25,6 @@ test('login shows error when password is empty', async ({ page }) => {
 });
 
 test('confirm that the password visibility toggle shows the password correctly when clicked', async ({ page }) => {
-  await page.goto('/auth/login');
   await expect(login.loginTitle).toBeVisible();
   await login.textBoxUsernameEmail.fill('amberly');
   await login.textBoxPassword.fill('Amberly33');

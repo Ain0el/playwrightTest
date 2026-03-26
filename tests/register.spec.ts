@@ -4,12 +4,12 @@ import { RegisterPage } from '../locator/auth.ts';
 let register: RegisterPage;
 
 test.beforeEach(async ({ page }) => {
-    register = new RegisterPage(page);
+  register = new RegisterPage(page);
+  await page.goto('/auth/register');
 
 });
 
 test('user can register', async ({ page }) => {
-  await page.goto('/auth/register');
   await expect(register.createAccountText).toBeVisible();
   await register.textBoxFullname.fill('Amberly');
   await register.textBoxUsername.fill('amberly');
@@ -22,11 +22,10 @@ test('user can register', async ({ page }) => {
 });
 
 test('registration fails when password lacks uppercase and numbers', async ({ page }) => {
-  await page.goto('/auth/register');
   await expect(register.createAccountText).toBeVisible();
   await register.textBoxFullname.fill('Bea Mine');
   await register.textBoxUsername.fill('baemine');
-  await await register.textBoxEmail.fill('baeminee@gmail.com');
+  await register.textBoxEmail.fill('baeminee@gmail.com');
   await register.textBoxPassword.fill('minebaee');
   await register.textBoxPassConfirm.fill('minebaee');
   await register.btnRegister.click();
@@ -34,7 +33,6 @@ test('registration fails when password lacks uppercase and numbers', async ({ pa
 });
 
 test('registration fails when email is already registered', async ({ page }) => {
-  await page.goto('/auth/register');
   await expect(register.createAccountText).toBeVisible();
   await register.textBoxFullname.fill('Amberly');
   await register.textBoxUsername.fill('amberly');
@@ -46,7 +44,6 @@ test('registration fails when email is already registered', async ({ page }) => 
 });
 
 test('registration fails when password and confirmation do not match', async ({ page }) => {
-  await page.goto('/auth/register');
   await expect(register.createAccountText).toBeVisible()
   await register.textBoxFullname.fill('Anita Bath');
   await register.textBoxUsername.fill('anitab');
