@@ -26,7 +26,7 @@ test('registration fails when password lacks uppercase and numbers', async ({ pa
   await expect(register.createAccountText).toBeVisible();
   await register.textBoxFullname.fill('Bea Mine');
   await register.textBoxUsername.fill('baemine');
-  await await register.textBoxEmail.fill('baeminee@gmail.com');
+  await register.textBoxEmail.fill('baeminee@gmail.com');
   await register.textBoxPassword.fill('minebaee');
   await register.textBoxPassConfirm.fill('minebaee');
   await register.btnRegister.click();
