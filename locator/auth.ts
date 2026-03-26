@@ -34,26 +34,25 @@ export class RegisterPage {
 }
 
 export class LoginPage {
-readonly page: Page;
-readonly loginTitle: Locator;
-readonly textBoxUsernameEmail: Locator;
-readonly textBoxPassword: Locator;
-readonly btnLogin: Locator;
-readonly textErrorEmptyEmail: Locator;
-readonly textErrorEmptyPassword: Locator;
-readonly btnTogglePassword: Locator;
-readonly textBoxPasswordVisible: Locator;
+  readonly page: Page;
+  readonly loginTitle: Locator;
+  readonly textBoxUsernameEmail: Locator;
+  readonly textBoxPassword: Locator;
+  readonly btnLogin: Locator;
+  readonly textErrorEmptyEmail: Locator;
+  readonly textErrorEmptyPassword: Locator;
+  readonly btnTogglePassword: Locator;
+  readonly textBoxPasswordVisible: Locator;
 
-constructor(page: Page) {
-this.page = page;
-this.loginTitle = page.getByRole('heading', { name: 'Login' });
-this.textBoxUsernameEmail = page.getByRole('textbox', { name: 'Email / Username Email /' });
-this.textBoxPassword = page.getByRole('textbox', { name: 'Password Password' });
-this.btnLogin = page.getByRole('button', { name: 'Login' });
-this.textErrorEmptyEmail = page.getByText('Please input your email or');
-this. textErrorEmptyPassword = page.getByText('Please input your password');
-this.btnTogglePassword = page.getByRole('button').filter({ hasText: /^$/ });
-this.textBoxPasswordVisible = page.getByRole('textbox', { name: 'Password Password' });
-
- }
+  constructor(page: Page) {
+    this.page = page;
+    this.loginTitle = page.getByRole('heading', { name: 'Login' });
+    this.textBoxUsernameEmail = page.getByRole('textbox', { name: 'Email / Username Email /' });
+    this.textBoxPassword = page.getByRole('textbox', { name: 'Password Password' });
+    this.btnLogin = page.getByRole('button', { name: 'Login' });
+    this.textErrorEmptyEmail = page.getByText('Please input your email or');
+    this. textErrorEmptyPassword = page.getByText('Please input your password');
+    this.btnTogglePassword = page.getByRole('button').filter({ hasText: /^$/ });
+    this.textBoxPasswordVisible = page.getByRole('textbox', { name: 'Password Password' });
+  }
 }
