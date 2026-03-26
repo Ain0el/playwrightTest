@@ -28,25 +28,25 @@ test('user can register', async ({ page }) => {
   // await page.getByText('Request failed with status');
 
 //TC-04
-  // await expect(page.getByRole('heading', { name: 'Create Account' })).toBeVisible();
-  // await page.getByRole('textbox', { name: 'Fullname Fullname' }).fill("Audie Yose");
-  // await page.getByRole('textbox', { name: 'Username Username' }).fill("aidiey");
-  // await page.getByRole('textbox', { name: 'Email Email' }).fill("audieyose@gmail.com");
-  // await page.getByRole('textbox', { name: 'Password Password' }).fill("Yoseaudi3");
-  // await page.getByRole('textbox', { name: 'Password Confirmation' }).fill("Yoseaudi3");
-  // await page.getByRole('button', { name: 'Register' }).click();
-  // await page.getByText('Request failed with status');
+  await expect(page.getByRole('heading', { name: 'Create Account' })).toBeVisible();
+  await page.getByRole('textbox', { name: 'Fullname Fullname' }).fill("Audie Yose");
+  await page.getByRole('textbox', { name: 'Username Username' }).fill("aidiey");
+  await page.getByRole('textbox', { name: 'Email Email' }).fill("audieyose@gmail.com");
+  await page.getByRole('textbox', { name: 'Password Password' }).fill("Yoseaudi3");
+  await page.getByRole('textbox', { name: 'Password Confirmation' }).fill("Yoseaudi3");
+  await page.getByRole('button', { name: 'Register' }).click();
+  await page.getByText('Request failed with status');
 
   
 //TC-05
-  await expect(page.getByRole('heading', { name: 'Create Account' })).toBeVisible();
-  await page.getByRole('textbox', { name: 'Fullname Fullname' }).fill("Anita Bath");
-  await page.getByRole('textbox', { name: 'Username Username' }).fill("anitab");
-  await page.getByRole('textbox', { name: 'Email Email' }).fill("anitabath@gmail.com");
-  await page.getByRole('textbox', { name: 'Password Password' }).fill("Anita122");
-  await page.getByRole('textbox', { name: 'Password Confirmation' }).fill("Anita112");
-  await page.getByRole('button', { name: 'Register' }).click();
-  await page.getByText('Password not match');
+//   await expect(page.getByRole('heading', { name: 'Create Account' })).toBeVisible();
+//   await page.getByRole('textbox', { name: 'Fullname Fullname' }).fill("Anita Bath");
+//   await page.getByRole('textbox', { name: 'Username Username' }).fill("anitab");
+//   await page.getByRole('textbox', { name: 'Email Email' }).fill("anitabath@gmail.com");
+//   await page.getByRole('textbox', { name: 'Password Password' }).fill("Anita122");
+//   await page.getByRole('textbox', { name: 'Password Confirmation' }).fill("Anita112");
+//   await page.getByRole('button', { name: 'Register' }).click();
+//   await page.getByText('Password not match');
   
   
   // await usersPage.textBoxPassword.fill('123');
