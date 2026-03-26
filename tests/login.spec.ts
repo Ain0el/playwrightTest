@@ -1,28 +1,36 @@
+// @ts-check
 import { test, expect } from '@playwright/test';
+import { LoginPage } from '../locator/auth.ts';
+let login: LoginPage;
 
-test('user can register', async ({ page }) => {
+test.beforeEach(async ({ page }) => {
+    login = new LoginPage(page);
+
+});
+
+test('login shows error when username or email is empty', async ({ page }) => {
   await page.goto('/auth/login');
+  await expect(login.loginTitle).toBeVisible();
+  await login.textBoxUsernameEmail.fill('');
+  await login.textBoxPassword.fill('Amberly33');
+  await login.btnLogin.click();
+  await expect(login.textErrorEmptyEmail).toBeVisible();
+});
 
-//TC-06
-//   await expect(page.getByRole('heading', { name: 'Login' })).toBeVisible();
-//   await page.getByRole('textbox', { name: 'Email / Username Email /' }).fill("");
-//   await page.getByRole('textbox', { name: 'Password Password' }).fill("Yoseaudi3");
-//   await page.getByRole('button', { name: 'Login' }).click();
-//   await page.getByText('Please input your email or');
+test('login shows error when password is empty', async ({ page }) => {
+  await page.goto('/auth/login');
+  await expect(login.loginTitle).toBeVisible();
+  await login.textBoxUsernameEmail.fill('amberly');
+  await login.textBoxPassword.fill('');
+  await login.btnLogin.click();
+  await expect(login.textErrorEmptyPassword).toBeVisible();
+});
 
-
-//TC-07
-//   await expect(page.getByRole('heading', { name: 'Login' })).toBeVisible();
-//   await page.getByRole('textbox', { name: 'Email / Username Email /' }).fill("aidiey");
-//   await page.getByRole('textbox', { name: 'Password Password' }).fill("");
-//   await page.getByRole('button', { name: 'Login' }).click();
-//   await page.getByText('Please input your password');
-
-//TC-08
-  await expect(page.getByRole('heading', { name: 'Login' })).toBeVisible();
-  await page.getByRole('textbox', { name: 'Email / Username Email /' }).fill("aidiey");
-  await page.getByRole('textbox', { name: 'Password Password' }).fill("Yoseaudi3");
-  await page.getByRole('button').filter({ hasText: /^$/ }).click();
-  await expect(page.getByRole('textbox', { name: 'Password Password' })).toHaveValue('Yoseaudi3');
-
+test('confirm that the password visibility toggle shows the password correctly when clicked', async ({ page }) => {
+  await page.goto('/auth/login');
+  await expect(login.loginTitle).toBeVisible();
+  await login.textBoxUsernameEmail.fill('amberly');
+  await login.textBoxPassword.fill('Amberly33');
+  await login.btnTogglePassword.click();
+  await expect(login.textBoxPasswordVisible).toHaveValue('Amberly33');
 });
