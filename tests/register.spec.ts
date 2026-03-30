@@ -9,17 +9,18 @@ test.beforeEach(async ({ page }) => {
 
 });
 
-// test('user can register', async ({ page }) => {
-//   await expect(register.createAccountText).toBeVisible();
-//   await register.textBoxFullname.fill('Merry Anne');
-//   await register.textBoxUsername.fill('merryanne');
-//   await register.textBoxEmail.fill('merryanne@gmail.com');
-//   await register.textBoxPassword.fill('Merryanne33');
-//   await register.textBoxPassConfirm.fill('Merryanne33');
-//   await register.btnRegister.click();
-//   await expect(register.textCreateSuccess).toBeVisible();
-//   await expect(register.textActivationEmail).toBeVisible();
-// });
+test('user can register', async ({ page }) => {
+  const timestamp = Date.now();
+  await expect(register.createAccountText).toBeVisible();
+  await register.textBoxFullname.fill('Merry Anne');
+  await register.textBoxUsername.fill(`merryanne_${timestamp}`);
+  await register.textBoxEmail.fill(`merryanne_${timestamp}@gmail.com`);
+  await register.textBoxPassword.fill('Merryanne33');
+  await register.textBoxPassConfirm.fill('Merryanne33');
+  await register.btnRegister.click();
+  await expect(register.textCreateSuccess).toBeVisible();
+  await expect(register.textActivationEmail).toBeVisible();
+});
 
 test('registration fails when password lacks uppercase and numbers', async ({ page }) => {
   await expect(register.createAccountText).toBeVisible();
@@ -40,7 +41,7 @@ test('registration fails when email is already registered', async ({ page }) => 
   await register.textBoxPassword.fill('Merryanne33');
   await register.textBoxPassConfirm.fill('Merryanne33');
   await register.btnRegister.click();
-  await expect(register.textFailedStatus).toBeVisible;
+  await expect(register.textFailedStatus).toBeVisible();
 });
 
 test('registration fails when password and confirmation do not match', async ({ page }) => {
@@ -51,7 +52,7 @@ test('registration fails when password and confirmation do not match', async ({ 
   await register.textBoxPassword.fill('Anita122');
   await register.textBoxPassConfirm.fill('Anita112');
   await register.btnRegister.click();
-  await expect (register.textPasswordNotMatch).toBeVisible;
+  await expect (register.textPasswordNotMatch).toBeVisible();
 });
   
   
