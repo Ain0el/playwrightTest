@@ -11,14 +11,14 @@ test.beforeEach(async ({ page }) => {
 test('login shows error when username or email is empty', async ({ page }) => {
   await expect(login.loginTitle).toBeVisible();
   await login.textBoxUsernameEmail.fill('');
-  await login.textBoxPassword.fill('Lilyanna33');
+  await login.textBoxPassword.fill('Merryanne33');
   await login.btnLogin.click();
   await expect(login.textErrorEmptyEmail).toBeVisible();
 });
 
 test('login shows error when password is empty', async ({ page }) => {
   await expect(login.loginTitle).toBeVisible();
-  await login.textBoxUsernameEmail.fill('lilyanna');
+  await login.textBoxUsernameEmail.fill('merryanne');
   await login.textBoxPassword.fill('');
   await login.btnLogin.click();
   await expect(login.textErrorEmptyPassword).toBeVisible();
@@ -26,8 +26,8 @@ test('login shows error when password is empty', async ({ page }) => {
 
 test('confirm that the password visibility toggle shows the password correctly when clicked', async ({ page }) => {
   await expect(login.loginTitle).toBeVisible();
-  await login.textBoxUsernameEmail.fill('lilyanna');
-  await login.textBoxPassword.fill('Lilyanna33');
+  await login.textBoxUsernameEmail.fill('merryanne');
+  await login.textBoxPassword.fill('Merryanne33');
   await login.btnTogglePassword.click();
   await expect(login.textBoxPasswordVisible).toHaveValue('Lilyanna33');
 });

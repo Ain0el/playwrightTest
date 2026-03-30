@@ -11,11 +11,11 @@ test.beforeEach(async ({ page }) => {
 
 test('user can register', async ({ page }) => {
   await expect(register.createAccountText).toBeVisible();
-  await register.textBoxFullname.fill('Lily Anna');
-  await register.textBoxUsername.fill('lilyanna');
-  await register.textBoxEmail.fill('lilyanna@gmail.com');
-  await register.textBoxPassword.fill('Lilyanna33');
-  await register.textBoxPassConfirm.fill('Lilyanna33');
+  await register.textBoxFullname.fill('Merry Anne');
+  await register.textBoxUsername.fill('merryanne');
+  await register.textBoxEmail.fill('merryanne@gmail.com');
+  await register.textBoxPassword.fill('Merryanne33');
+  await register.textBoxPassConfirm.fill('MerryAnne33');
   await register.btnRegister.click();
   await expect(register.textCreateSuccess).toBeVisible();
   await expect(register.textActivationEmail).toBeVisible();
@@ -34,11 +34,11 @@ test('registration fails when password lacks uppercase and numbers', async ({ pa
 
 test('registration fails when email is already registered', async ({ page }) => {
   await expect(register.createAccountText).toBeVisible();
-  await register.textBoxFullname.fill('Lily Anna');
-  await register.textBoxUsername.fill('lilyanna');
-  await register.textBoxEmail.fill('lilyanna@gmail.com');
-  await register.textBoxPassword.fill('Lilyanna33');
-  await register.textBoxPassConfirm.fill('Lilyanna33');
+  await register.textBoxFullname.fill('Merry Anne');
+  await register.textBoxUsername.fill('merryanne');
+  await register.textBoxEmail.fill('merryanne@gmail.com');
+  await register.textBoxPassword.fill('Merryanne33');
+  await register.textBoxPassConfirm.fill('Merryanne33');
   await register.btnRegister.click();
   await expect(register.textFailedStatus).toBeVisible;
 });
