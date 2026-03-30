@@ -29,5 +29,5 @@ test('confirm that the password visibility toggle shows the password correctly w
   await login.textBoxUsernameEmail.fill('merryanne');
   await login.textBoxPassword.fill('Merryanne33');
   await login.btnTogglePassword.click();
-  await expect(login.textBoxPasswordVisible).toHaveValue('Lilyanna33');
+  await expect(login.textBoxPasswordVisible).toHaveValue('Merryanne33');
 });
