@@ -14,7 +14,7 @@ test('user can register', async ({ page }) => {
   await register.textBoxFullname.fill('Lily Anna');
   await register.textBoxUsername.fill('lilyanna');
   await register.textBoxEmail.fill('lilyanna@gmail.com');
-  await register.textBoxPassword.fill('lLilyanna33');
+  await register.textBoxPassword.fill('Lilyanna33');
   await register.textBoxPassConfirm.fill('Lilyanna33');
   await register.btnRegister.click();
   await expect(register.textCreateSuccess).toBeVisible();
