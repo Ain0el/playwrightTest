@@ -28,7 +28,7 @@ export default defineConfig({
   
   use: {
     trace: 'on-first-retry',
-    baseURL: 'https://front-end-acara.vercel.app/',
+    baseURL: 'https://wpucourse.id/',
     ignoreHTTPSErrors: true,
   },
  

@@ -5,54 +5,68 @@ let register: RegisterPage;
 
 test.beforeEach(async ({ page }) => {
   register = new RegisterPage(page);
-  await page.goto('/auth/register');
+  await page.goto('https://learn.wpucourse.id/auth/register');
 
 });
 
 test('user can register', async ({ page }) => {
   const timestamp = Date.now();
-  await expect(register.createAccountText).toBeVisible();
-  await register.textBoxFullname.fill('Merry Anne');
-  await register.textBoxUsername.fill(`merryanne_${timestamp}`);
-  await register.textBoxEmail.fill(`merryanne_${timestamp}@gmail.com`);
-  await register.textBoxPassword.fill('Merryanne33');
-  await register.textBoxPassConfirm.fill('Merryanne33');
-  await register.btnRegister.click();
-  await expect(register.textCreateSuccess).toBeVisible();
-  await expect(register.textActivationEmail).toBeVisible();
+  await expect(register.createRegistrasiText).toBeVisible();
+  await expect(register.textBuatAkun).toBeVisible();
+  await expect(register.imgLogo).toBeVisible();
+  await register.textNamaLengkap.fill('fibey');
+  await register.textBoxUsername.fill('fibey50');
+  await register.textBoxEmail.fill('fibey50141@nazisat.com');
+  await register.textBoxPassword.fill('Fibey50141');
+  await register.textBoxPassConfirm.fill('Fibey50141');
+  await register.clickCheckbox.click();
+  await register.btnAgree.click()
+  await register.btnBuatAkun.click();
 });
 
-test('registration fails when password lacks uppercase and numbers', async ({ page }) => {
-  await expect(register.createAccountText).toBeVisible();
-  await register.textBoxFullname.fill('Bea Mine');
-  await register.textBoxUsername.fill('baemine');
-  await register.textBoxEmail.fill('baeminee@gmail.com');
-  await register.textBoxPassword.fill('minebaee');
-  await register.textBoxPassConfirm.fill('minebaee');
-  await register.btnRegister.click();
-  await expect(register.textFailedStatus).toBeVisible();
+test('registration fails when password does not contain eight characters', async ({ page }) => {
+  await expect(register.createRegistrasiText).toBeVisible();
+  await expect(register.textBuatAkun).toBeVisible();
+  await expect(register.imgLogo).toBeVisible();
+  await register.textNamaLengkap.fill('minad');
+  await register.textBoxUsername.fill('minadd');
+  await register.textBoxEmail.fill('minad99056@nazisat.com');
+  await register.textBoxPassword.fill('Minaddd');
+  await register.textBoxPassConfirm.fill('Minaddd');
+  await register.clickCheckbox.click();
+  await register.btnAgree.click()
+  await register.btnBuatAkun.click();
+  await expect(register.textMinKarakterPass).toBeVisible();
+ });
+
+test('registration fails when password does not contain uppercase letters', async ({ page }) => {
+  await expect(register.createRegistrasiText).toBeVisible();
+  await expect(register.textBuatAkun).toBeVisible();
+  await expect(register.imgLogo).toBeVisible();
+  await register.textNamaLengkap.fill('minad');
+  await register.textBoxUsername.fill('minadd');
+  await register.textBoxEmail.fill('minad99056@nazisat.com');
+  await register.textBoxPassword.fill('minaaddd');
+  await register.textBoxPassConfirm.fill('minaaddd');
+  await register.clickCheckbox.click();
+  await register.btnAgree.click()
+  await register.btnBuatAkun.click();
+  await expect(register.textHurufBesarPass).toBeVisible();
 });
 
-test('registration fails when email is already registered', async ({ page }) => {
-  await expect(register.createAccountText).toBeVisible();
-  await register.textBoxFullname.fill('Merry Anne');
-  await register.textBoxUsername.fill('merryanne');
-  await register.textBoxEmail.fill('merryanne@gmail.com');
-  await register.textBoxPassword.fill('Merryanne33');
-  await register.textBoxPassConfirm.fill('Merryanne33');
-  await register.btnRegister.click();
-  await expect(register.textFailedStatus).toBeVisible();
-});
-
-test('registration fails when password and confirmation do not match', async ({ page }) => {
-  await expect(register.createAccountText).toBeVisible()
-  await register.textBoxFullname.fill('Anita Bath');
-  await register.textBoxUsername.fill('anitab');
-  await register.textBoxEmail.fill('anitabath@gmail.com');
-  await register.textBoxPassword.fill('Anita122');
-  await register.textBoxPassConfirm.fill('Anita112');
-  await register.btnRegister.click();
-  await expect (register.textPasswordNotMatch).toBeVisible();
+test('registration fails when password does not contain numbers', async ({ page }) => {
+   await expect(register.createRegistrasiText).toBeVisible();
+  await expect(register.textBuatAkun).toBeVisible();
+  await expect(register.imgLogo).toBeVisible();
+  await register.textNamaLengkap.fill('minad');
+  await register.textBoxUsername.fill('minadd');
+  await register.textBoxEmail.fill('minad99056@nazisat.com');
+  await register.textBoxPassword.fill('Minaaddd');
+  await register.textBoxPassConfirm.fill('Minaaddd');
+  await register.clickCheckbox.click();
+  await register.btnAgree.click()
+  await register.btnBuatAkun.click();
+  await expect(register.textAngkaPass).toBeVisible();
 });
   
   
