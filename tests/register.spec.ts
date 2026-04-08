@@ -1,6 +1,7 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 import { RegisterPage } from '../locator/auth.ts';
+
 let register: RegisterPage;
 
 test.beforeEach(async ({ page }) => {
