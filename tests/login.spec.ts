@@ -44,6 +44,7 @@ test('User fails to login if email or password is incorrect', async ({ page }) =
   await login.textBoxPassword.waitFor({ state: 'visible' });
   await login.textBoxPassword.fill('Fibey50140');
   await login.btnMasuk.click();
+  await page.waitForTimeout(2000);
   await expect(login.textEmailPassSalah).toBeVisible();
 });
 
