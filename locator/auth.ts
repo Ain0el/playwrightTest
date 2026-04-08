@@ -41,7 +41,6 @@ export class RegisterPage {
 
 export class LoginPage {
    readonly page: Page;
-   readonly btnMasuk: Locator;
    readonly imgLogo: Locator;
    readonly masukTitle: Locator;
    readonly textSelamatDatang: Locator;

@@ -28,9 +28,12 @@ export default defineConfig({
   
   use: {
     trace: 'on-first-retry',
-    baseURL: 'https://wpucourse.id/',
+    baseURL: 'https://learn.wpucourse.id/',
     ignoreHTTPSErrors: true,
+
+  
   },
+
  
   /* Configure projects for major browsers */
   projects: [
