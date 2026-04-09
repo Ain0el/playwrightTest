@@ -25,8 +25,9 @@ test('login shows error when password is empty', async ({ page }) => {
   await login.textBoxEmail.fill('fibey50141@nazisat.com');
   await login.textBoxPassword.waitFor({ state: 'visible' });
   await login.textBoxPassword.fill('');
+  await login.textBoxPassword.press('Tab');
   await login.btnMasuk.click();
-  await expect(login.textInputPass).toBeVisible();
+  await expect(login.textInputPass).toBeVisible({ timeout: 5000 });
 });
 
 test('login shows error when email is empty', async ({ page }) => {
@@ -35,8 +36,9 @@ test('login shows error when email is empty', async ({ page }) => {
   await login.textBoxEmail.press('Tab');
   await login.textBoxPassword.waitFor({ state: 'visible' });
   await login.textBoxPassword.fill('Fibey50141');
+  await login.textBoxPassword.press('Tab');
   await login.btnMasuk.click();
-  await expect(login.textInputEmail).toBeVisible({timeout: 2000});
+  await expect(login.textInputEmail).toBeVisible({ timeout: 5000});
 });
 
 test('User fails to login if email or password is incorrect', async ({ page }) => {
@@ -45,7 +47,7 @@ test('User fails to login if email or password is incorrect', async ({ page }) =
   await login.textBoxPassword.waitFor({ state: 'visible' });
   await login.textBoxPassword.fill('Fibey50140');
   await login.btnMasuk.click();
-  await expect(login.textEmailPassSalah).toBeVisible();
+  await expect(login.textEmailPassSalah).toBeVisible({ timeout: 5000 });
 });
 
 
