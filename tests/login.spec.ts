@@ -12,7 +12,7 @@ test.beforeEach(async ({ page }) => {
   await expect(login.textSelamatDatang).toBeVisible();
 });
 
-test('user can login', async ({ page }) => {
+test('confirm user can login', async ({ page }) => {
   await login.textBoxEmail.waitFor({ state: 'visible' });
   await login.textBoxEmail.fill('fibey50141@nazisat.com');
   await login.textBoxPassword.waitFor({ state: 'visible' });
