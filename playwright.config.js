@@ -31,8 +31,10 @@ export default defineConfig({
     baseURL: 'https://learn.wpucourse.id/',
     ignoreHTTPSErrors: true,
 
+ 
   
   },
+
 
  
   /* Configure projects for major browsers */
